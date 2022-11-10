@@ -1,0 +1,46 @@
+<p>exemplos-pipe </p>
+<p>Título: {{ livro.titulo }}</p>
+<!-- <p>Título: {{ livro.titulo | uppercase |lowercase  }}</p> -->
+<p>Estrelas: {{ livro.rating |number: '1.1-2' }}</p>
+<p>Páginas: {{ livro.numeroPaginas |number }}</p>
+<p>Preço: {{ livro.preco | currency: 'BRL' }}</p>
+<p>Data de Lançamento: {{ livro.dataLancamento | date: 'dd/MMM/yyyy' }}</p>
+<p>Url: {{ livro.url }}</p>
+<br>
+<p>Livro:{{ livro | json }}</p>
+
+<br><br>
+  <!-- quando usar o ngmodel precisso importar o formismodel no AAP.MODULE.TS -->
+<Label>Filtro</Label>
+ <input type="text" [(ngModel)]="filtro">
+<br><br>
+
+<input type="text" #novoValor>
+<button (click)="addCurso(novoValor.value)">Add Curso</button>
+
+<h5>Pipe Puro</h5>
+
+<ul>
+  <li *ngFor="let liv of livros | filtroArray:filtro">
+     {{ liv }}
+  </li>
+</ul>
+
+<h5>Pipe Impuro</h5>
+
+<ul>
+  <li *ngFor="let liv of livros | filtroArray:filtro">
+     {{ liv }}
+  </li>
+</ul>
+
+<h5>Maneira correta de usar filtros nos projetos.</h5>
+
+<ul>
+  <li *ngFor="let liv of livros | filtroArray:filtro">
+     {{ liv }}
+  </li>
+</ul>
+
+<p>{{ valoAsync | async }}</p>
+<p>{{ valoAsync | async }}</p>
